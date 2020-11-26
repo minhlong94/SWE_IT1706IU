@@ -1,6 +1,6 @@
 import streamlit as st
 
-from src.gui.table import Table
+from src.GUI.table import Table
 
 
 class Menu:
@@ -25,7 +25,7 @@ class Menu:
         self.current_option = ""
 
     def display_option(self):
-        self.current_option = self.select_box.selectbox(self.text, self.options)
+        self.current_option = self.select_box.selectbox(self.text, self.options, key=0)
         if self.current_option == "View table":
             self.display_table()
         elif self.current_option == "View profit plot":

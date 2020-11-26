@@ -1,3 +1,3 @@
 import subprocess
 
-subprocess.run("streamlit run ./src/__main__.py")
+subprocess.run("streamlit run main.py")
