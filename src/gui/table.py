@@ -1,7 +1,7 @@
 import io
 import os
-import pandas_profiling as pp
 import pandas as pd
+import pandas_profiling
 import streamlit as st
 import streamlit.components.v1 as components
 
@@ -28,6 +28,7 @@ class Table:
     table.show_dataframe() => Show options and the selected DataFrame.
 
     """
+
     def __init__(self):
         self.show_df = None
         self.profile_df = None
@@ -44,7 +45,7 @@ class Table:
             col1, col2 = st.beta_columns(2)
             with col1:
                 options = os.listdir(self.data_path)
-                table = st.selectbox(self.text, options)
+                table = st.selectbox(self.text, options, key=1)
                 df = pd.read_csv(os.path.join(self.data_path, table))
                 self.show_df = df.head(self.limit_rows)
                 self.profile_df = df
